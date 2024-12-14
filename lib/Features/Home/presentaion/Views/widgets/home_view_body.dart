@@ -1,4 +1,4 @@
-import 'package:bookly/Features/Home/presentaion/Views/widgets/bast_seller_list_view_item.dart';
+import 'package:bookly/Features/Home/presentaion/Views/widgets/bast_seller_list_view.dart';
 import 'package:bookly/Features/Home/presentaion/Views/widgets/custom_app_bar.dart';
 import 'package:bookly/Features/Home/presentaion/Views/widgets/feature_Books_List_Views.dart';
 import 'package:bookly/core/Utils/Style.dart';
@@ -9,20 +9,34 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomAppBAR(),
-          FeatureBooksListViews(),
-          SizedBox(
-            height: 30,
+    return const CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: CustomAppBAR(),
+              ),
+              FeatureBooksListViews(),
+              SizedBox(
+                height: 30,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30),
+                child: Text('Bast Saller', style: Styles.textStyle18),
+              ),
+            ],
           ),
-          Text('Bast Saller', style: Styles.textStyle18),
-          BastSallerListViewItem()
-        ],
-      ),
+        ),
+        SliverFillRemaining(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30),
+            child: BastSellerListView(),
+          ),
+        ),
+      ],
     );
   }
 }
