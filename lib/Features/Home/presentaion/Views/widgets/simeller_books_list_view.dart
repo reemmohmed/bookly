@@ -13,7 +13,10 @@ class SimellerBooksListView extends StatelessWidget {
           itemBuilder: (context, index) {
             return const Padding(
               padding: EdgeInsets.symmetric(horizontal: 5),
-              child: CustomBookItem(),
+              child: CustomBookItem(
+                imageUrl:
+                    'https://unsplash.com/photos/young-asian-travel-woman-is-enjoying-with-beautiful-place-in-bangkok-thailand-_Fqoswmdmoo',
+              ),
             );
           }),
     );

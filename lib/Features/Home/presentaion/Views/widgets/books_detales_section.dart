@@ -15,7 +15,10 @@ class BooksDetalesSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: wight * .2),
-          child: const CustomBookItem(),
+          child: const CustomBookItem(
+            imageUrl:
+                'https://unsplash.com/photos/young-asian-travel-woman-is-enjoying-with-beautiful-place-in-bangkok-thailand-_Fqoswmdmoo',
+          ),
         ),
         const SizedBox(
           height: 43,
