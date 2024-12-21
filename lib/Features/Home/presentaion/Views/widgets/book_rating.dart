@@ -4,8 +4,13 @@ import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 import '../../../../../core/Utils/Style.dart';
 
 class BookRating extends StatelessWidget {
+  final int count;
+  final int rating;
   const BookRating(
-      {super.key, this.mainAxisAlignment = MainAxisAlignment.start});
+      {super.key,
+      this.mainAxisAlignment = MainAxisAlignment.start,
+      required this.count,
+      required this.rating});
   final MainAxisAlignment mainAxisAlignment;
   @override
   Widget build(BuildContext context) {
@@ -21,7 +26,7 @@ class BookRating extends StatelessWidget {
           width: 6.3,
         ),
         Text(
-          '4.6',
+          count.toString(),
           style: Styles.textStyle16.copyWith(fontWeight: FontWeight.bold),
         ),
         const SizedBox(
@@ -30,7 +35,7 @@ class BookRating extends StatelessWidget {
         Opacity(
           opacity: .5,
           child: Text(
-            '(245)',
+            '($rating)',
             style: Styles.textStyle14.copyWith(fontWeight: FontWeight.w600),
           ),
         )

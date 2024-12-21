@@ -12,7 +12,8 @@ class SearchReselt extends StatelessWidget {
         itemBuilder: (context, inddex) {
           return const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
-            child: BookListViewItem(),
+            // child: BookListViewItem(),
+            child: Text("data"),
           );
         });
   }

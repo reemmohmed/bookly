@@ -23,6 +23,7 @@ class FeatureBooksListViews extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: EdgeInsets.symmetric(horizontal: 7),
+                  //i want to make loding indecator when the imge no return i show loding indcator else  i show cusyom image
                   child: CustomBookItem(
                     imageUrl:
                         state.books[index].volumeInfo!.imageLinks.thumbnail,
