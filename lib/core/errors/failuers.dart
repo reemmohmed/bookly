@@ -28,8 +28,7 @@ class ServerFailuer extends Failuers {
       case DioExceptionType.cancel:
         return ServerFailuer('Result to Apserver to cancel');
       case DioExceptionType.connectionError:
-        return ServerFailuer(
-            'Connection error occurred. Please check your network connection.');
+        return ServerFailuer(' Please check your network connection.');
 
       case DioExceptionType.unknown:
         return ServerFailuer('Ops There was an Error, Please try agin!');

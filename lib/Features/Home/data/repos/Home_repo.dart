@@ -5,4 +5,6 @@ import 'package:dartz/dartz.dart';
 abstract class HomeRepo {
   Future<Either<Failuers, List<BooksModel>>> feachFeatcherBooks();
   Future<Either<Failuers, List<BooksModel>>> feachNewsSeller();
+  Future<Either<Failuers, List<BooksModel>>> feacheSemellerBooks(
+      {required String categery});
 }

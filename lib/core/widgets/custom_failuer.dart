@@ -6,9 +6,11 @@ class CustomFailuer extends StatelessWidget {
   final String erroeMessage;
   @override
   Widget build(BuildContext context) {
-    return Text(
-      erroeMessage,
-      style: Styles.textStyle18,
+    return Center(
+      child: Text(
+        erroeMessage,
+        style: Styles.textStyle18,
+      ),
     );
   }
 }

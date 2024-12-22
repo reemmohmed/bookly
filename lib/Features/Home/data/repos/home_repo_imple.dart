@@ -45,4 +45,24 @@ class HomeRepoImple implements HomeRepo {
       return left(ServerFailuer(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failuers, List<BooksModel>>> feacheSemellerBooks(
+      {required String categery}) async {
+    try {
+      var data = await apiServes.get(
+          endpoint:
+              'volumes?q=subject:Programming&Filtraing=free_ebooks&Storge=relevance');
+      List<BooksModel> books = [];
+      for (var item in data['items']) {
+        books.add(BooksModel.fromJson(item));
+      }
+      return right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailuer.fromDioException(e));
+      }
+      return left(ServerFailuer(e.toString()));
+    }
+  }
 }
