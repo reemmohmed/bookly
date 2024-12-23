@@ -21,8 +21,11 @@ class _BookDetaliseViewState extends State<BookDetaliseView> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(child: BookDetalseViewBody()),
+    return Scaffold(
+      body: SafeArea(
+          child: BookDetalseViewBody(
+        booksModel: widget.booksModel,
+      )),
     );
   }
 }

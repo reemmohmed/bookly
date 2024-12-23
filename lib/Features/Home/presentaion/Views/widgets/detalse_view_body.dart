@@ -1,3 +1,4 @@
+import 'package:bookly/Features/Home/data/Models/books_model/books_model.dart';
 import 'package:bookly/Features/Home/presentaion/Views/widgets/books_detales_section.dart';
 import 'package:bookly/Features/Home/presentaion/Views/widgets/simeller_books_section.dart';
 import 'package:flutter/material.dart';
@@ -5,26 +6,29 @@ import 'package:flutter/material.dart';
 import 'custom_book_detase_app_bar.dart';
 
 class BookDetalseViewBody extends StatelessWidget {
-  const BookDetalseViewBody({super.key});
+  const BookDetalseViewBody({super.key, required this.booksModel});
+  final BooksModel booksModel;
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
+    return CustomScrollView(
       slivers: [
         SliverFillRemaining(
           hasScrollBody: false,
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30),
+            padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Column(
               children: [
-                CustomBookDetalseAppBar(),
-                BooksDetalesSection(),
-                Expanded(
+                const CustomBookDetalseAppBar(),
+                BooksDetalesSection(
+                  books: booksModel,
+                ),
+                const Expanded(
                   child: SizedBox(
                     height: 50,
                   ),
                 ),
-                SimellerBooksSection(),
-                SizedBox(
+                const SimellerBooksSection(),
+                const SizedBox(
                   height: 40,
                 ),
               ],

@@ -1,17 +1,19 @@
+import 'package:bookly/Features/Home/data/Models/books_model/books_model.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../core/widgets/custom_buttom.dart';
 
 class BookAction extends StatelessWidget {
-  const BookAction({super.key});
-
+  const BookAction({super.key, required this.booksModel});
+  final BooksModel booksModel;
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 8),
-      child: const Row(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: Row(
         children: [
-          Expanded(
+          const Expanded(
             child: CustomButtom(
               titel: '19.19*',
               bacgroundColor: Colors.white,
@@ -23,6 +25,13 @@ class BookAction extends StatelessWidget {
           ),
           Expanded(
             child: CustomButtom(
+              onPressed: () async {
+                final Uri url =
+                    Uri.parse(booksModel.accessInfo!.webReaderLink!);
+                if (!await launchUrl(url)) {
+                  throw Exception('Could not launch $url');
+                }
+              },
               fontsize: 16,
               titel: 'Free Preview',
               bacgroundColor: Color(0xffEF8262),
